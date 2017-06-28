@@ -64,7 +64,9 @@ public class ReadingServiceImpl implements ReadingService {
 
         /**
          * Checking and adding all the alerts based on recently added reading
+         * and sending email in case any high alert is encountered
          * */
+
         if(currReading.getEngineRpm() > vehicle.getRedLineRpm()){
             createAlert("HIGH", currReading);
             emailService.sendSimpleMessage("testemailspring9@gmail.com","High Alert!!","Alert!! Current engine rpm"+ currReading.getEngineRpm()

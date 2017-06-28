@@ -10,6 +10,7 @@ import java.util.List;
 
 
 public interface AlertsService {
+
     List<Alerts> findAll();
     Alerts findById(String id);
     List<Alerts> findByVIN(String vin);

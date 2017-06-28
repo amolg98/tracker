@@ -13,7 +13,6 @@ public interface ReadingService {
     Reading findById(String id);
     List<Reading> findByVIN(String vin);
     Reading create(Reading reading);
-    //List<Reading> update(List<Reading> reading);
     Reading update(Reading reading);
     void delete(String id);
 

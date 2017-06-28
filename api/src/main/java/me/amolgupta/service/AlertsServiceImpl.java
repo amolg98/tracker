@@ -44,8 +44,7 @@ public class AlertsServiceImpl implements AlertsService {
         if(existingAlerts != null) {
             throw new BadRequestException("Alerts with id "+ alerts.getId() +" already exist!");
         }
-        Alerts currAlerts = alertsRepository.create(alerts);
-        return currAlerts;
+        return alertsRepository.create(alerts);
     }
 
     public Alerts update(Alerts alerts) {

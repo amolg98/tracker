@@ -45,16 +45,8 @@ public class VehicleController {
         for(Vehicle vehicle: vehicleList){
             System.out.println(vehicle);
         }
-
         vehicleService.update(vehicleList);
     }
-
-/*    @RequestMapping(method = RequestMethod.PUT,
-            consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
-            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public void update(@RequestBody Vehicle vehicle){
-        vehicleService.update(vehicle);
-    }*/
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/{vin}")
     public void delete(@PathVariable("vin") String vin){

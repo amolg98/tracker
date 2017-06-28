@@ -47,12 +47,6 @@ public class ReadingController {
         readingService.create(reading);
     }
 
-    /*@RequestMapping(method = RequestMethod.PUT,
-            consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
-            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public void update(@RequestBody List<Reading> readingList){
-        readingService.update(readingList);
-    }*/
 
     @RequestMapping(method = RequestMethod.PUT,
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,

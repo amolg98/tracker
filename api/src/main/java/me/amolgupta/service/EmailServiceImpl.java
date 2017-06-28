@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 
 /**
  * Created by amolg on 6/27/2017.
- * Email feature to send email in case of any
- * High alerts are encountered for any readings
- * received.
+ * Implementation of Email feature to send email
+ * in case of any High alerts are encountered for
+ * any reading received.
  */
 
 @Component
