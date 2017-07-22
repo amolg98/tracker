@@ -12,11 +12,12 @@ class AlertsList extends Component {
         };
     }
 
+
     componentDidMount() {
         var self = this;
         console.log('--> Triggering from XHR');
         //const AlertsListURL = "http://swapi.co/api/planets/";
-        const AlertsListURL = "http://localhost:8080/readings/highAlert";
+        const AlertsListURL = "http://localhost:8080/alerts/highAlert";
         axios.get(AlertsListURL)
             .then(function(response){
                 console.log(response);
@@ -32,14 +33,13 @@ class AlertsList extends Component {
     }
 
 
-
     render() {
         let AlertsListData;
 
         if(this.state.AlertsList){
             AlertsListData = this.state.AlertsList.map(AlertsData => {
                 return(
-                    <Alerts key={AlertsData.id} metaAlertsData={AlertsData} />
+                    <Alerts key={AlertsData.vin} metaAlertsData={AlertsData} />
                 );
             })
         }

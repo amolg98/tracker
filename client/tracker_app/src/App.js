@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import VehicleList from './Vehicle/VehicleList.js';
-import ReadingList from "./Reading/ReadingList";
+//import VehicleList from './Vehicle/VehicleList.js';
+//import ReadingList from "./Reading/ReadingList";
+import AlertsList from "./Alerts/AlertsList.js";
 
 
 class App extends Component {
@@ -14,8 +15,8 @@ class App extends Component {
                     <h2>Welcome to React</h2>
                 </div>
                 <div>
-                    <VehicleList />
-                    <ReadingList />
+                    {/*<VehicleList />*/}
+                    <AlertsList/>
                 </div>
             </div>
         );

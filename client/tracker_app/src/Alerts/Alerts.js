@@ -7,10 +7,8 @@ class Alerts extends Component {
             <div className="Alerts">
                 <table>
                     <tr>
-                        <td>ID : {this.props.metaAlertsData.id}</td>
-                        <td>Priority : {this.props.metaAlertsData.priority}</td>
-                        <td>Reading ID : {this.props.metaAlertsData.model}</td>
-                        <td>VIN : {this.props.metaAlertsData.year}</td>
+                        <td>VIN : {this.props.metaAlertsData.vin}</td>
+                        <td>Count : {this.props.metaAlertsData.count}</td>
                     </tr>
                 </table>
             </div>
