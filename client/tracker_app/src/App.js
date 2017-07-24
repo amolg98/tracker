@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
+
 import VehicleList from './Vehicle/VehicleList.js';
 //import ReadingList from "./Reading/ReadingList";
 import AlertsList from "./Alerts/AlertsList.js";
-//import Map  from "./Map/map.js";
+
+import Map from "./Map/Map";
+
+import './App.css';
 
 
 class App extends Component {
@@ -15,13 +18,18 @@ class App extends Component {
                 <div className="App-header">
                     <h2>Welcome to React</h2>
                 </div>
-                <div>
+                <div className="simpleMap">
                     <VehicleList />
                     <AlertsList />
-                    {/*<Map*/}
-                        {/*containerElement={<div style={{height:100+'%'}} />}*/}
-                        {/*mapElement={<div style={{height:100+'%'}} />}*/}
-                    {/*/>*/}
+                    <Map center={{ lat: 29.617124, lng: -82.373750 }}
+                         zoom={14}
+                         containerElement={
+                             <div style={{ height: `100%`, width:`100%` }} />
+                         }
+                         mapElement={
+                             <div style={{ height: `100%`, width:`100%` }} />
+                         }
+                    />
                 </div>
             </div>
         );
