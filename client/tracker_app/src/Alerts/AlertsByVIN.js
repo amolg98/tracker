@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import './Alerts.css';
 
 class AlertsByVIN extends Component {
     render() {
         return (
-            <div className="Alerts">
-                <table>
-                    <tr>
-                        <td>VIN : {this.props.metaAlertsData.vin}</td>
-                        <td>AlertID : {this.props.metaAlertsData.id}</td>
-                    </tr>
-                </table>
-            </div>
+            <BootstrapTable data={ this.props.metaAlertsData }>
+                <TableHeaderColumn dataField='vin' isKey>Vehicle ID</TableHeaderColumn>
+                <TableHeaderColumn dataField='id'>Alert ID</TableHeaderColumn>
+            </BootstrapTable>
         );
     }
 }
