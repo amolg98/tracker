@@ -1,4 +1,3 @@
-/* global google */
 import React, { Component } from "react";
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 
@@ -21,8 +20,8 @@ class Map extends Component {
 
     mapLoaded(map){
         // console.log('mapLoaded: ' + JSON.stringify(map.getCenter()))
-        if(this.state.map != null)
-            return
+        if(this.state.map !== null)
+            return;
 
         this.setState({
             map: map

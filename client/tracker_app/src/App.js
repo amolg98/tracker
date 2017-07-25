@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 import VehicleList from './Vehicle/VehicleList.js';
 //import ReadingList from "./Reading/ReadingList";
 import AlertsList from "./Alerts/AlertsList.js";
-
+import AlertsListByVIN from "./Alerts/AlertsListByVIN.js";
 import Map from "./Map/Map";
 
 import './App.css';
+import VinListForAlerts from "./Alerts/VinListForAlerts";
 
 
 class App extends Component {
@@ -20,7 +21,9 @@ class App extends Component {
                 </div>
                 <div className="simpleMap">
                     <VehicleList />
+                    <AlertsListByVIN />
                     <AlertsList />
+                    <VinListForAlerts />
                     <Map center={{ lat: 29.617124, lng: -82.373750 }}
                          zoom={14}
                          containerElement={
