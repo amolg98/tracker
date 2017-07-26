@@ -11,6 +11,7 @@ class AlertsListByVIN extends Component {
         };
     }
 
+
     componentWillReceiveProps(nextProps){
         console.log('Inside '+ this.props.nameD);
         this.setState({AlertsListData: nextProps.nameD});

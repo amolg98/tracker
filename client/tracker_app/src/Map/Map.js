@@ -6,8 +6,16 @@ class Map extends Component {
     constructor(){
         super();
         this.state = {
-            map:null
+            map:null,
+            mapData:[]
         }
+    }
+
+    componentWillReceiveProps(nextProps){
+        console.log('Inside Map component ');
+        console.log(nextProps.markers);
+        this.setState({mapData: nextProps.markers});
+        console.log("In method just before this part ");
     }
 
     mapMoved(){
@@ -29,7 +37,19 @@ class Map extends Component {
     }
 
     render() {
-        const markers = this.props.markers || [];
+        console.log("In Map render method ");
+        //console.log(this.state.mapData);
+        var markers = this.props.markers.map((venue, index) => {
+            const marker = {
+                position: {
+                    lat: venue.latitude,
+                    lng: venue.longitude
+                }
+            };
+
+
+            return <Marker key={index} { ...marker } />
+        });
 
         return (
             <GoogleMap
@@ -38,9 +58,7 @@ class Map extends Component {
                 onZoomChanged={this.zoomChanged.bind(this)}
                 defaultZoom={this.props.zoom}
                 defaultCenter={this.props.center} >
-                {markers.map((marker, index) => (
-                    <Marker {...marker} />
-                ))}
+                { markers }
             </GoogleMap>
 
         );
