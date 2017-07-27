@@ -62,8 +62,9 @@ class VinListForAlerts extends Component {
 
         return (
             <div className="VinByAlert" id="VinByAlert">
+                <h2>Vehicle Alerts Data</h2>
                 <div className="drop-down" >
-                    <Dropdown options={options} key={options.vin} onChange={this.onSelectThis.bind(this)} value={null} placeholder="Select an option" />
+                    <Dropdown options={options} key={options.vin} onChange={this.onSelectThis.bind(this)} value={null} placeholder="Select a Vehicle Number" />
                 </div>
                 <div className="AlertListByVIN" >
                     <AlertsListByVIN nameD={this.state.AlertsForVehicles} />

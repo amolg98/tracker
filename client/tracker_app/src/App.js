@@ -18,12 +18,27 @@ class App extends Component {
                 <div className="App-header">
                     <h2>Welcome to React</h2>
                 </div>
-                <div className="simpleMap">
-                    <VehicleList />
-                    <AlertsList />
-                    <VinListForAlerts />
-                    <VehListForMap />
+                <div className="App-body">
+                    <div className="vehicle-list">
+                        <VehicleList />
+                    </div>
+                    <div className="alertsByVin-list">
+                        <VinListForAlerts />
+                    </div>
+
+                    <div className="alert-list">
+                        <AlertsList />
+                    </div>
+                    <div className="simpleMap">
+                        <VehListForMap />
+                    </div>
+                    <div className="footer">
+                        <footer>
+                            &copy; 1930 Website &nbsp;<span class="separator">|</span> Design by Amol Gupta
+                        </footer>
+                    </div>
                 </div>
+
             </div>
         );
     }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Vehicle from './Vehicle.js';
 import axios from 'axios';
-import './VehilceList.css';
+import './Vehicle.css';
+
 
 class VehicleList extends Component {
 
@@ -15,11 +16,9 @@ class VehicleList extends Component {
     componentDidMount() {
         var self = this;
         console.log('--> Triggering from XHR');
-        //const vehicleListURL = "http://swapi.co/api/planets/";
         const vehicleListURL = "http://localhost:8080/vehicles";
         axios.get(vehicleListURL)
             .then(function(response){
-                console.log(response);
                 if(response.data){
                     self.setState({
                         vehicleList : response.data
@@ -34,20 +33,17 @@ class VehicleList extends Component {
 
 
     render() {
-        let vehicleListData;
-
         if(this.state.vehicleList){
-            vehicleListData = this.state.vehicleList.map(vehicleData => {
-                return(
-                    <Vehicle key={vehicleData.vin} metaVehicleData={vehicleData} />
-                );
-            })
+            return(
+                <div>
+                    <Vehicle metaData={this.state.vehicleList} />
+                </div>
+            );
         }
 
-        console.log('Inside vehicle list render method '+ vehicleListData);
         return (
             <div className="VehicleList">
-                {vehicleListData}
+                {this.state.vehicleList}
             </div>
         );
     }

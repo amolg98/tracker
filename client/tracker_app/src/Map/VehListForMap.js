@@ -62,8 +62,9 @@ class VehListForMap extends Component {
 
         return (
             <div className="VinByAlert" id="VinByAlert">
+                <h2>Vehicle Location Details</h2>
                 <div className="drop-down" >
-                    <Dropdown options={options} key={options.vin} onChange={this.onSelectThis.bind(this)} value={null} placeholder="Select an option" />
+                    <Dropdown options={options} key={options.vin} onChange={this.onSelectThis.bind(this)} value={null} placeholder="Select a Vehicle Number" />
                 </div>
                 <div className="simpleMap">
                     <Map center={{ lat: 29.617124, lng: -82.373750 }}

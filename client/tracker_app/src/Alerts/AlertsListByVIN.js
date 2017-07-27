@@ -20,20 +20,20 @@ class AlertsListByVIN extends Component {
 
 
     render() {
-        let AlertsListData;
+        //let AlertsListData;
 
         if(this.state.AlertsListData){
-            AlertsListData = this.state.AlertsListData.map(AlertsData => {
-                return(
-                    <AlertsByVIN key={AlertsData.id} metaAlertsData={AlertsData} />
+            return(
+                <div>
+
+                    <AlertsByVIN metaAlertsByVinData={this.state.AlertsListData} />
+                </div>
                 );
-            })
         }
 
-        console.log('Inside Alerts list render method '+ AlertsListData);
         return (
             <div className="AlertsList">
-                {AlertsListData}
+                {this.state.AlertsListData}
             </div>
         );
     }
