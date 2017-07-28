@@ -31,10 +31,12 @@ public class JPAConfig {
         vmf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         vmf.setPackagesToScan("me.amolgupta.entity");
 
+
         Properties properties = new Properties();
         properties.put("hibernate.dialect","org.hibernate.dialect.MySQL57Dialect");
-        properties.put("hibernate.hbm2ddl.auto","create");
+        properties.put("hibernate.hbm2ddl.auto","validate");
         properties.put("hibernate.show_sql","true");
+
 
         vmf.setJpaProperties(properties);
 

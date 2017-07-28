@@ -1,11 +1,9 @@
 package me.amolgupta.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
@@ -34,9 +32,17 @@ public class Vehicle {
     private int redLineRpm;
     @JsonProperty("maxFuelVolume")
     private int maxFuelVolume;
+
     @JsonProperty("lastServiceDate")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private Timestamp lastServiceDate;
 
+
+    public Vehicle(){}
+
+    public Vehicle(String vin) {
+        this.vin = vin;
+    }
 
     public String getVin() {
         return vin;

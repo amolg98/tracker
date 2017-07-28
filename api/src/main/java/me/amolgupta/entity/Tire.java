@@ -2,7 +2,7 @@ package me.amolgupta.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 
 /**
  * Created by amolg on 6/23/2017.

@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by amolg on 6/23/2017.
  */
-@CrossOrigin(origins = "http://mocker.egen.io", maxAge = 3600)
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/vehicles")
 public class VehicleController {
@@ -22,6 +22,7 @@ public class VehicleController {
     @RequestMapping(method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<Vehicle> findAll(){
+        System.out.println("In vehicle controller");
         return vehicleService.findAll();
     }
 

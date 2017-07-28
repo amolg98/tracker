@@ -10,12 +10,11 @@ import java.util.List;
 
 
 public interface AlertsService {
-
     List<Alerts> findAll();
     Alerts findById(String id);
     List<Alerts> findByVIN(String vin);
     Alerts create(Alerts alerts);
-    //List<Reading> update(List<Reading> reading);
+    List<Alerts> findByHighAlerts();
     Alerts update(Alerts alerts);
     void delete(String id);
 }

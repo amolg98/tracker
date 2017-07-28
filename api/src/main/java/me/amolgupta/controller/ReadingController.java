@@ -12,7 +12,7 @@ import java.util.List;
  * Created by amolg on 6/23/2017.
  */
 
-@CrossOrigin(origins = "http://mocker.egen.io", maxAge = 3600)
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/readings")
 public class ReadingController {
@@ -25,6 +25,7 @@ public class ReadingController {
     public List<Reading> findAll(){
         return readingService.findAll();
     }
+
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}",
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
@@ -39,6 +40,7 @@ public class ReadingController {
     public List<Reading> findByVIN(@PathVariable("vin") String vin){
         return readingService.findByVIN(vin);
     }
+
 
     @RequestMapping(method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,

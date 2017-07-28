@@ -7,6 +7,7 @@ import me.amolgupta.repository.AlertsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public class AlertsServiceImpl implements AlertsService {
 
     @Autowired
     private AlertsRepository alertsRepository;
-    
+
     public List<Alerts> findAll() {
         return alertsRepository.findAll();
     }
@@ -32,11 +33,18 @@ public class AlertsServiceImpl implements AlertsService {
     }
 
     public List<Alerts> findByVIN(String vin) {
-        List<Alerts> alertssList = alertsRepository.findByVIN(vin);
-        if(alertssList.isEmpty()){
+        List<Alerts> alertsList = alertsRepository.findByVIN(vin);
+        if(alertsList.isEmpty()){
             throw new ResourceNotFoundException("No alerts for Vehicle with VIN "+ vin + "exists!");
         }
-        return alertssList;
+        return alertsList;
+    }
+
+
+    public List<Alerts> findByHighAlerts() {
+        Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis() - 7200000);
+        String priority = "HIGH";
+        return alertsRepository.findByHighAlerts(priority, currentTimestamp);
     }
 
     public Alerts create(Alerts alerts) {
@@ -44,7 +52,8 @@ public class AlertsServiceImpl implements AlertsService {
         if(existingAlerts != null) {
             throw new BadRequestException("Alerts with id "+ alerts.getId() +" already exist!");
         }
-        return alertsRepository.create(alerts);
+        Alerts currAlerts = alertsRepository.create(alerts);
+        return currAlerts;
     }
 
     public Alerts update(Alerts alerts) {

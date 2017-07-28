@@ -1,7 +1,7 @@
 package me.amolgupta.service;
 
 import me.amolgupta.entity.Reading;
-
+import me.amolgupta.entity.Alerts;
 import java.util.List;
 
 /**

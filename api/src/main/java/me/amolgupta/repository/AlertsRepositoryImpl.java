@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -32,7 +33,30 @@ public class AlertsRepositoryImpl implements AlertsRepository {
         query.setParameter("paramVIN", vin);
 
         List<Alerts> resultList = query.getResultList();
+
+        /*if(resultList.size()!=0) {
+            System.out.println("Not empty list ");
+
+            for (Alerts alert : resultList) {
+                System.out.println(alert.getPriority() + " " + alert.getId() + " " + alert.getVin());
+            }
+        }*/
+
         return resultList;
+    }
+
+    public List<Alerts> findByHighAlerts(String priority, Timestamp currentTimestamp){
+        System.out.println("In repo start ");
+
+        TypedQuery<Alerts> query = alertsEntityManager.createNamedQuery("Alerts.findByHighAlerts", Alerts.class);
+        query.setParameter("paramPriority", priority);
+        query.setParameter("paramCurrentTimestamp", currentTimestamp);
+        System.out.println("In repository");
+        List<Alerts> list = query.getResultList();
+        System.out.println("In repository  after");
+        System.out.println(list.get(0));
+
+        return list;
     }
 
     public Alerts create(Alerts alerts) {

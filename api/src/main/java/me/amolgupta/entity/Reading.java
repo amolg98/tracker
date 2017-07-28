@@ -1,5 +1,6 @@
 package me.amolgupta.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
@@ -27,7 +28,9 @@ public class Reading {
     private double latitude;
     @JsonProperty("longitude")
     private double longitude;
+
     @JsonProperty("timestamp")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private Timestamp timestamp;
     @JsonProperty("fuelVolume")
     private double fuelVolume;

@@ -13,7 +13,7 @@ import java.util.List;
  */
 
 @Repository
-public class VehicleRepositoryImpl implements VehicleRepository {
+public class VehicleRepositoryImpl implements VehicleRepository{
 
     @PersistenceContext
     private EntityManager vehicleEntityManager;

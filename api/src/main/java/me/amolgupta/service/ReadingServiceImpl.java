@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import java.util.List;
 
 /**
@@ -64,21 +65,19 @@ public class ReadingServiceImpl implements ReadingService {
 
         /**
          * Checking and adding all the alerts based on recently added reading
-         * and sending email in case any high alert is encountered
          * */
-
         if(currReading.getEngineRpm() > vehicle.getRedLineRpm()){
-            createAlert("HIGH", currReading);
-            emailService.sendSimpleMessage("testemailspring9@gmail.com","High Alert!!","Alert!! Current engine rpm"+ currReading.getEngineRpm()
-                    + " is more than prescribed limit "+ vehicle.getRedLineRpm());
+            createAlert("HIGH", currReading, "Engine RPM is very high!!");
+            /*emailService.sendSimpleMessage("testemailspring9@gmail.com","High Alert!!","Alert!! Current engine rpm"+ currReading.getEngineRpm()
+                    + " is more than prescribed limit "+ vehicle.getRedLineRpm());*/
         }
 
         if(currReading.getFuelVolume() < (0.1 * vehicle.getMaxFuelVolume())){
-            createAlert("MEDIUM", currReading);
+            createAlert("MEDIUM", currReading, "Fuel is very low!!");
         }
 
         if(currReading.isEngineCoolantLow() == true || currReading.isCheckEngineLightOn() == true){
-            createAlert("LOW", currReading);
+            createAlert("LOW", currReading,"Check Engine Light is on!!");
         }
 
         if(currReading.getTires().getFrontLeft() < 32 || currReading.getTires().getFrontLeft() > 36
@@ -86,18 +85,19 @@ public class ReadingServiceImpl implements ReadingService {
                 || currReading.getTires().getRearLeft() < 32 || currReading.getTires().getRearLeft() > 36
                 || currReading.getTires().getRearRight() < 32 || currReading.getTires().getRearRight() > 36
                 ){
-            createAlert("LOW", currReading);
+            createAlert("LOW", currReading, "Tire pressure is less in one or more of the tires!!");
         }
-
         return currReading;
     }
 
     @Transactional
-    public void createAlert(String priority, Reading currReading){
+    public void createAlert(String priority, Reading currReading, String message){
         Alerts alerts = new Alerts();
         alerts.setReadingId(currReading.getId());
         alerts.setVin(currReading.getVin());
         alerts.setPriority(priority);
+        alerts.setMessage(message);
+        alerts.setTimestamp(currReading.getTimestamp());
         alertsService.create(alerts);
     }
 

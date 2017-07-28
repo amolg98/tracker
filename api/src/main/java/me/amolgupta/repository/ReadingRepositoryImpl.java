@@ -34,6 +34,11 @@ public class ReadingRepositoryImpl implements ReadingRepository {
         return resultList;
     }
 
+    public List<Reading> findByHighAlerts() {
+        TypedQuery<Reading> query = readingEntityManager.createNamedQuery("Reading.findByHighAlerts", Reading.class);
+        return query.getResultList();
+    }
+
     public Reading create(Reading reading) {
         readingEntityManager.persist(reading);
         return reading;
