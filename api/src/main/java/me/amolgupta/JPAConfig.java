@@ -65,8 +65,8 @@ public class JPAConfig {
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
 
-        mailSender.setUsername("testemailspring9@gmail.com");
-        mailSender.setPassword("Test@130");
+        mailSender.setUsername("abcdef@gmail.com");
+        mailSender.setPassword("xxxxxxx");
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
